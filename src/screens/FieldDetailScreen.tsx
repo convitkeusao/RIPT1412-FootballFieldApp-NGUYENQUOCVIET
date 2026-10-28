@@ -87,11 +87,12 @@ export default function FieldDetailScreen({ route, navigation }: FieldDetailScre
           style={styles.backButton}
           textStyle={{ color: colors.text }}
         />
+        <Text style={styles.title}>Đặt sân</Text>
+
       </View>
 
       <View style={styles.headerCard}>
         <Text style={styles.fieldName}>{field.name}</Text>
-
         <View style={styles.headerRow}>
           <Text style={styles.metaLabel}>Loại:</Text>
           <Text style={styles.metaValue}>{field.type}</Text>
@@ -215,6 +216,8 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     paddingHorizontal: 16,
     marginBottom: 8,
+    marginTop: 16,
+
   },
   listContent: {
     paddingHorizontal: 16,
@@ -229,5 +232,12 @@ const styles = StyleSheet.create({
   emptyText: {
     color: colors.textMuted,
     fontSize: 16,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: colors.text,
+    marginBottom: 0,
+    flex: 1,
   },
 });
