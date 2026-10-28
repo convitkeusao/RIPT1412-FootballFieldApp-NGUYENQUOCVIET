@@ -67,6 +67,12 @@ export default function BookingModal({
     setErrors(prev => ({ ...prev, [key]: undefined as never }));
   };
 
+  const handleClose = () => {
+    setForm(emptyForm);
+    setErrors({});
+    onClose();
+  };
+
   const handleSubmit = () => {
     const nextBooking = {
       ...form,
@@ -87,7 +93,7 @@ export default function BookingModal({
   };
 
   return (
-    <Modal transparent visible={visible} animationType="slide" onRequestClose={onClose}>
+    <Modal transparent visible={visible} animationType="slide" onRequestClose={handleClose}>
       <KeyboardAvoidingView
         style={styles.overlay}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -179,7 +185,7 @@ export default function BookingModal({
           </ScrollView>
 
           <View style={styles.footer}>
-            <AppButton label="Hủy" variant="secondary" onPress={onClose} style={styles.cancelButton} />
+            <AppButton label="Hủy" variant="secondary" onPress={handleClose} style={styles.cancelButton} />
             <AppButton
               label={loading ? 'Đang lưu...' : 'Xác nhận'}
               onPress={handleSubmit}
